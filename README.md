@@ -1,12 +1,6 @@
-# Build Docker Image
-
-```bash
-$ docker build -t zephir .
-```
-
 # Init Project
 ```bash
-$ docker run --rm -it -v $(pwd)/test:/project zephir init hello
+$ docker run --rm -it -v $(pwd)/test:/project oucel/zephir init hello
 ```
 
 # Create Test File
@@ -27,10 +21,10 @@ class Hello
 
 # Build Project
 ```bash
-$ docker run --rm -it -v $(pwd)/test/hello:/project zephir build
+$ docker run --rm -it -v $(pwd)/test/hello:/project oucel/zephir build
 ```
 
 # Test Extension
 ```bash
-$ docker run --rm --entrypoint 'php' -it -v $(pwd):/project zephir -dextension=/project/test/hello/ext/modules/hello.so -r "echo Hello\Hello::say();"
+$ docker run --rm --entrypoint 'php' -it -v $(pwd):/project oucel/zephir -dextension=/project/test/hello/ext/modules/hello.so -r "echo Hello\Hello::say();"
 ```
